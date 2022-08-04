@@ -1,13 +1,24 @@
-
 import React from "react";
 import { directors } from "../data";
-import PersonDetails from "./ActorInfo";
+
 function Directors() {
+  const directorsInfo = directors.map((director) => (
+    <div key={director.name}>
+      <h2>{director.name}</h2>
+      <ul>
+        {director.movies.map((movie) => (
+          <li key={movie}>{movie}</li>
+        ))}
+      </ul>
+    </div>
+  ))
   return (
-    <>
-      <h1>Directors Page</h1>
-      <PersonDetails person={directors} />
-    </>
+  <div>
+    <h1>Directors Page</h1>
+    <div>
+      {directorsInfo}
+    </div>
+  </div>
   );
 }
 
